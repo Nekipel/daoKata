@@ -47,6 +47,8 @@ public class UserDaoJDBCImpl implements UserDao {
             stmt.setString(2, lastName);
             stmt.setInt(3, age);
             stmt.executeUpdate();
+            System.out.printf("User с именем – %s добавлен в базу данных", name);
+            System.out.println();
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -73,6 +75,8 @@ public class UserDaoJDBCImpl implements UserDao {
                         rs.getString("lastname"), rs.getByte("age"));
                 user.setId(rs.getLong("id"));
                 listUsers.add(user);
+                System.out.printf(user.toString());
+                System.out.println();
             }
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
